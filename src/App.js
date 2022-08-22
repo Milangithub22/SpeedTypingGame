@@ -16,8 +16,9 @@ export default function App() {
     }
   }, [countdown, start]);
 
-  function key(event) {
-    setKeystroke(event.target.value);
+  function handleChange(e) {
+    const { value } = e.target;
+    setKeystroke(value);
   }
   function calculateWords(arr) {
     const words = arr.trim().split(" ");
@@ -33,7 +34,11 @@ export default function App() {
   return (
     <div>
       <h1>How fast do you type?</h1>
-      <textarea value={keystroke} onChange={key()} disabled={!countdown} />
+      <textarea
+        value={keystroke}
+        onChange={handleChange}
+        disabled={!countdown}
+      />
       <h4>Time reminaing: {countdown}</h4>
       <button onClick={StartAgain} disabled={countdown}>
         Start
