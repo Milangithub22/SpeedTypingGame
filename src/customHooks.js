@@ -27,10 +27,7 @@ export default function Logic () {
         textBoxRef.current.focus()
     }
     
-    function endGame() {
-        setIsTimeRunning(false)
-        setWordCount(calculateWordCount(text))
-    }
+    
     
     useEffect(() => {
         if(isTimeRunning && timeRemaining > 0) {
@@ -38,7 +35,8 @@ export default function Logic () {
                 setTimeRemaining(time => time - 1)
             }, 1000)
         } else if(timeRemaining === 0) {
-            endGame()
+            setIsTimeRunning(false)
+        setWordCount(calculateWordCount(text))
         }
     }, [timeRemaining, isTimeRunning])
     
