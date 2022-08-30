@@ -13,7 +13,7 @@ export default function Logic () {
         const {value} = e.target
         setText(value)
     }
-    const a = function calculateWordCount(text) {
+    function calculateWordCount(text) {
         const wordsArr = text.trim().split(" ")
         return wordsArr.filter(word => word !== "").length
     }
@@ -37,7 +37,7 @@ export default function Logic () {
             }, 1000)
         } else if(timeRemaining === 0) {
             setIsTimeRunning(false)
-        setWordCount(a)
+        setWordCount(calculateWordCount(text))
         }
     }, [timeRemaining, isTimeRunning])
     
