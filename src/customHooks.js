@@ -13,11 +13,12 @@ export default function Logic () {
         const {value} = e.target
         setText(value)
     }
-    
-    function calculateWordCount(text) {
+    const a = function calculateWordCount(text) {
         const wordsArr = text.trim().split(" ")
         return wordsArr.filter(word => word !== "").length
     }
+    
+    
     
     function startGame() {
         setIsTimeRunning(true)
@@ -36,7 +37,7 @@ export default function Logic () {
             }, 1000)
         } else if(timeRemaining === 0) {
             setIsTimeRunning(false)
-        setWordCount(calculateWordCount(text))
+        setWordCount(a)
         }
     }, [timeRemaining, isTimeRunning])
     
