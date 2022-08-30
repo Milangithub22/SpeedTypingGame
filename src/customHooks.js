@@ -38,7 +38,7 @@ export default function Logic () {
             setIsTimeRunning(false)
         setWordCount(calculateWordCount(text))
         }
-    }, [timeRemaining, isTimeRunning, text])
+    }, [timeRemaining, isTimeRunning])
     
     return {wordCount,textBoxRef, handleChange, text, isTimeRunning, timeRemaining, startGame}
 }
