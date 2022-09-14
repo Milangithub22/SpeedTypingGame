@@ -35,7 +35,8 @@ export default function Logic() {
       setIsTimeRunning(false);
       setWordCount(calculateWordCount(text));
     }
-  }, [timeRemaining, isTimeRunning, text]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [timeRemaining, isTimeRunning]);
 
   return {
     wordCount,
