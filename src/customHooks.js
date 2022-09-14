@@ -1,23 +1,12 @@
-import { useState, useEffect, useRef, useReducer } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Logic() {
   const STARTING_TIME = 5;
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case "wordCount1":
-        return { wordCount: (state.wordCount = calculateWordCount(text)) };
-      default:
-        return state;
-    }
-  }
-
-  const [state, dispatch] = useReducer(reducer, { wordCount: 0 });
-
   const [text, setText] = useState("");
   const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME);
   const [isTimeRunning, setIsTimeRunning] = useState(false);
-  //   const [wordCount, setWordCount] = useState(0);
+  const [wordCount, setWordCount] = useState(0);
   const textBoxRef = useRef(null);
 
   function handleChange(e) {
@@ -44,8 +33,7 @@ export default function Logic() {
       }, 1000);
     } else if (timeRemaining === 0) {
       setIsTimeRunning(false);
-      //   setWordCount(calculateWordCount(text));
-      dispatch({ type: "wordCount1" });
+      setWordCount(calculateWordCount(text));
     }
   }, [timeRemaining, isTimeRunning]);
 
