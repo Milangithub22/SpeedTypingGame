@@ -6,7 +6,7 @@ export default function Logic() {
   function reducer(state, action) {
     switch (action.type) {
       case "wordCount1":
-        return { wordCount: calculateWordCount(text) };
+        return { wordCount: (state.wordCount = calculateWordCount(text)) };
       default:
         return state;
     }
